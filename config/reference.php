@@ -1488,6 +1488,14 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     generate_final_classes?: bool|Param, // Default: true
  *     generate_final_entities?: bool|Param, // Default: false
  * }
+ * @psalm-type TbbcMoneyConfig = array{
+ *     currencies?: list<scalar|Param|null>,
+ *     reference_currency?: scalar|Param|null, // Default: "EUR"
+ *     enable_pair_history?: bool|Param, // Default: false
+ *     decimals?: int|Param, // Default: 2
+ *     storage?: scalar|Param|null, // Default: "csv"
+ *     ratio_provider?: scalar|Param|null, // Default: "Tbbc\\MoneyBundle\\Pair\\RatioProvider\\ECBRatioProvider"
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1501,6 +1509,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     twig_extra?: TwigExtraConfig,
  *     security?: SecurityConfig,
  *     monolog?: MonologConfig,
+ *     tbbc_money?: TbbcMoneyConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1517,6 +1526,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
+ *         tbbc_money?: TbbcMoneyConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1531,6 +1541,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
+ *         tbbc_money?: TbbcMoneyConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1546,6 +1557,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
+ *         tbbc_money?: TbbcMoneyConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

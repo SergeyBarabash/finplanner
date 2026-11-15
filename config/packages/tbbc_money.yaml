@@ -1,0 +1,6 @@
+tbbc_money:
+    # RUB is the reference currency, so it must be part of the list: the bundle's
+    # CurrencyType/SimpleMoneyType validate the reference currency against it.
+    currencies: ["RUB", "USD", "EUR", "CNY"]
+    reference_currency: "RUB"
+    decimals: 2
